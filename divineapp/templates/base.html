@@ -2,16 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Divine App</title>
+    <title>DA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block metadescription%}{% endblock %}">
     <meta name="keywords" content="{% block metakeywords%}{% endblock %}">
     <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style>
       body {
         padding-top: 60px;
       }
+      h1 {
+        text-align: center;
+        font-family: 'Arimo', sans-serif;
+      }
+       p {
+         font-family: 'Arimo', sans-serif;
+       }
     </style>
   </head>
 
@@ -28,20 +36,12 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/">Contact</a></li>
+          <li><a href="/">Contacts</a></li>
         </ul>
       </div><!--/.navbar-collapse  -->
     </div>
 
         <div class="container">
-
-       {% block nobreadcrumb %}
-        <ul class="breadcrumb">
-          {% block breadcrumb %}
-          {% endblock %}
-        </ul>
-       {% endblock %}
-
           {% block content %}
           {% endblock %}
           <hr>
@@ -55,6 +55,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script   src="http://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {% block beforebodyend %}{% endblock %}
   </body>
 </html>
