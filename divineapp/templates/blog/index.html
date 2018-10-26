@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %} Divine App Blog page {% endblock %}
 {% block breadcrumb %}
         <li><a href="{% url 'homepage' %}">Home</a></li>
 	{% if blog %}
@@ -10,5 +10,11 @@
 {% endblock %}
 
 {% block content %}
-
+{% for post in posts %}
+  <div>
+      <p>published: {{ post.published_date }}</p>
+      <h2><a href="">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+  </div>
+{% endfor %}
 {% endblock %}

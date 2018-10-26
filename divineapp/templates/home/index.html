@@ -1,8 +1,14 @@
-<html>
-<head>
-  <title>DA Contacts</title>
-</head>
-<body>
-<h1>hello contacts</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %} Divine App Contacts page {% endblock %}
+{% block breadcrumb %}
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+	{% if Post.title %}
+            <li><a href="{% url 'home:index' %}">Contacts</a></li>
+        {% else %}
+            <li class="active">Contacts</li>
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+<h5>e-mail: support@divineapp.net</h5>
+{% endblock %}
