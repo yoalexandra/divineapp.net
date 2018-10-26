@@ -9,6 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
     <style>
       body {
         padding-top: 60px;
@@ -41,15 +42,23 @@
       </div><!--/.navbar-collapse  -->
     </div>
 
-        <div class="container">
-          {% block content %}
-          {% endblock %}
-          <hr>
+    <div class="container">
 
-          <footer>
-            <p>{% include "footer.html" %}</p>
-          </footer>
-        </div> <!-- /container -->
+      {% block nobreadcrumb %}
+      <ul class="breadcrumb">
+        {% block breadcrumb %}
+        {% endblock %}
+      </ul>
+      {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+  <hr>
+
+  <footer>
+    <p>{% include "footer.html" %}</p>
+  </footer>
+</div> <!-- /container -->
         <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
