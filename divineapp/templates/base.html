@@ -18,6 +18,9 @@
         text-align: center;
         font-family: 'Arimo', sans-serif;
       }
+      h2 {
+        color: #000;
+      }
        p {
          font-family: 'Arimo', sans-serif;
        }
@@ -37,13 +40,15 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/">Contacts</a></li>
+          <li><a href="{% url 'blog:index' %}">Blog</a></li>
+          <li><a href="{% url 'apps:index' %}">Apps</a></li>
+          <li><a href="{% url 'home:index' %}">Contacts</a></li>
         </ul>
       </div><!--/.navbar-collapse  -->
     </div>
 
     <div class="container">
-
+      <!--TODO: appear more than once, fix it -->
       {% block nobreadcrumb %}
       <ul class="breadcrumb">
         {% block breadcrumb %}

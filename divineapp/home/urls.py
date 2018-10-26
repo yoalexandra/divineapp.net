@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
-from . import views
+from divineapp.home import views as home_views
 
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^contacts/$', views.contacts),
+    url(r'^$',home_views.index,name="index"),
+    url(r'^$',home_views.contacts,name="contacts"),
 ]

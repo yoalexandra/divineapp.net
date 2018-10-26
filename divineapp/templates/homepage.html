@@ -19,11 +19,11 @@
       </div>
       <div class="col-md-4">
         <h2>Apps</h2>
-        <p><a class="btn btn-default" href="">View apps projects &raquo;</a></p>
+        <p><a class="btn btn-default" href="{% url 'apps:index' %}">View apps projects &raquo;</a></p>
       </div>
       <div class="col-md-4">
         <h2>Contacts</h2>
-        <p><a class="btn btn-default" href="">View contacts details &raquo;</a></p>
+        <p><a class="btn btn-default" href="{% url 'home:index' %}">View contacts details &raquo;</a></p>
       </div>
     </div>
 {% endblock %}

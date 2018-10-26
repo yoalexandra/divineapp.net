@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} Divine App  Apps page {% endblock %}
+{% block breadcrumb %}
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+	{% if apps %}
+            <li><a href="{% url 'apps:index' %}">Blog</a></li>
+        {% else %}
+            <li class="active">Apps</li>
+        {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
