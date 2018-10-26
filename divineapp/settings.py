@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'divineapp.home',
+    'divineapp.blog'
 
 ]
 #FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
