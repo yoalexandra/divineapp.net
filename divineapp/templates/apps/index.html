@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %} Divine App  Apps page {% endblock %}
 {% block breadcrumb %}
         <li><a href="{% url 'homepage' %}">Home</a></li>
@@ -10,5 +11,20 @@
 {% endblock %}
 
 {% block content %}
-
+<!-- Example row of columns -->
+<div class="row">
+<div class="col-md-4">
+  <h2>Escape Asteroid</h2>
+  <!--TODO: load app icons  -->
+  <p>My first iOs application,<br> helicopter-like game</p>
+  <!--<img src="">-->
+  <p><a class="btn btn-default" href="https://itunes.apple.com/us/app/escape-asteroid/id1317593746?mt=8" target="_blank">See on App Store &raquo;</a></p>
+</div>
+<div class="col-md-4">
+  <h2>Elite Sefl</h2>
+  <p>Developing this app<br> to teach people think different</p>
+  <!--<img src="">-->
+  <p><a class="btn btn-default" href="https://itunes.apple.com/ru/app/elite-self/id1424960042?l=en&mt=8" target="blank">See on App Store &raquo;</a></p>
+</div>
+</div>
 {% endblock %}

@@ -81,6 +81,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 # Static files (CSS, JavaScript, Images)
+STATIC_ROOT = os.path.join(PROJECT_DIR,'static')
 STATIC_URL = '/static/'
 INTERNAL_IPS = ('127.0.0.1')
 MEDIA_ROOT = '%s/userfiles/'% (BASE_DIR)
