@@ -3,5 +3,5 @@ from divineapp.home import views as home_views
 
 urlpatterns = [
     url(r'^$',home_views.index,name="index"),
-    url(r'^$',home_views.contacts,name="contacts"),
+    url(r'^contacts/$',home_views.contacts,name="contacts"),
 ]
