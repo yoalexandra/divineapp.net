@@ -2,8 +2,21 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+#import socket to read host name
+import socket
+# If the host name starts with 'li', set LIVEHOST = True
+if socket.gethostname().startswith('li'):
+    LIVEHOST = True
+else:
+    LIVEHOST = False
+# Define general behavior variables for live host and non-live host
+if LIVEHOST:
+    DEBUG = False
+else:
+    DEBUG = True
+
 SECRET_KEY = '+&@e5l%x4$58^vb#^_xox4okl!hs8r*#h(ot(vl$s)^p-13#_d'
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['*']
 # Application definition
@@ -85,3 +98,22 @@ STATIC_URL = '/static/'
 INTERNAL_IPS = ('127.0.0.1')
 
 STATICFILES_DIRS = ('%s/website-static-default/'% (BASE_DIR),)
+
+ADMINS = (('Webmaster', 'webmaster@divineapp.net'), ('admin', 'admin@divineapp.net'))
+
+#TODO: - configure it
+RAVEN_CONFIG = {
+    'dsn': 'https://<place_your_project_dsn_here>:<place_your_project_dsn_here>@sentry.io/151850',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    #'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+}
+
+if LIVEHOST:
+    # Output to file based SMTP server on live host
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = '/tmp/django-project-messages'
+
+else:
+    # Output to console for non live host
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
