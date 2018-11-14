@@ -1,12 +1,6 @@
 from django import forms
 import re
 
-class GenderField(forms.ChoiceField):
-      def __init__(self, *args, **kwargs):
-            super(GenderField, self).__init__(*args, **kwargs)
-            self.error_messages = {"required":"Please select a gender, it's required"}
-            self.choices = ((None,'Select gender'),('M','Male'),('F','Female'))
-
 class PlaceholderInput(forms.widgets.Input):
       template_name = 'sendemail/placeholder.html'
       input_type = 'text'
@@ -16,23 +10,29 @@ class PlaceholderInput(forms.widgets.Input):
             context['widget']['attrs']['placeholder'] = name.title()
             return context
 
+
 def validate_comment_word_count(value):
       count = len(value.split())
       if count < 30:
             raise forms.ValidationError(('Please provide at least a 30 word message, %(count)s words is not descriptive enough'),
-                                        params={'count': count},)
+                                        params={'count': count},
+            )
+class ContactForm(forms.Form):
+    name = forms.CharField(required=False)
+    email = forms.EmailField(label='Your email')
+    comment = forms.CharField(widget=forms.Textarea)
+
 class ContactForm(forms.Form):
       name = forms.CharField(required=False,widget=PlaceholderInput)
       email = forms.EmailField(label='Your email',widget=PlaceholderInput)
       comment = forms.CharField(widget=forms.Textarea,validators=[validate_comment_word_count],error_messages={"required":"Please, pretty please provide a comment"})
-      gender = GenderField()
-      field_order=['email','name','gender','comment']
+      field_order=['email','name','comment']
       def __init__(self, *args, **kwargs):
             # Get 'initial' argument if any
             initial_arguments = kwargs.get('initial', None)
             updated_initial = initial_arguments
             if initial_arguments:
-                  # If initial arguments, fetch 'user' placeholder variable if any
+                  # We have initial arguments, fetch 'user' placeholder variable if any
                   user = initial_arguments.get('user',None)
                   # Now update the form's initial values if user
                   if user:
@@ -66,8 +66,14 @@ class ContactForm(forms.Form):
             if value.isupper():
                   # Value is all upper case, raise an error
                   raise forms.ValidationError("Please don't use all upper case for your name, use lower case",code='uppercase')
+            # Always return value
             return value
       def clean_email(self):
       	    # Get the field value from cleaned_data dict
             value = self.cleaned_data['email']
+	    # Check if the value end in @hotmail.com
+            if value.endswith('@hotmail.com'):
+                  # Value ends in @hotmail.com, raise an error
+                  raise forms.ValidationError("Please don't use a hotmail email, we simply don't like it",code='hotmail')
+            # Always return value
             return value
