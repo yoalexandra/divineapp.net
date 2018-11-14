@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %} DA {% endblock %}
+{% block title %} Divine App {% endblock %}
+{% block nobreadcrumb %}{% endblock %}
 {% block content %}
   <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
@@ -23,7 +24,7 @@
       </div>
       <div class="col-md-4">
         <h2>Contacts</h2>
-        <p><a class="btn btn-default" href="{% url 'home:index' %}">View contacts details &raquo;</a></p>
+        <p><a class="btn btn-default" href="{% url 'contacts:index' %}">View contacts details &raquo;</a></p>
       </div>
     </div>
 {% endblock %}

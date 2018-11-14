@@ -31,9 +31,11 @@ INSTALLED_APPS = [
     'divineapp.home',
     'divineapp.blog',
     'divineapp.apps',
+    'divineapp.sendemail',
+    'django.forms',
 
 ]
-#FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,4 +118,4 @@ if LIVEHOST:
 
 else:
     # Output to console for non live host
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

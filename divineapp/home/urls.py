@@ -1,7 +1,9 @@
+from django.views.generic import TemplateView
 from django.conf.urls import include, url
-from divineapp.home import views as home_views
+from . import views
+
 
 urlpatterns = [
-    url(r'^$',home_views.index,name="index"),
-    url(r'^contacts/$',home_views.contacts,name="contacts"),
+    url(r'^$',views.index,name="index"),
+    url(r'^contacts/$',views.contacts,name="contacts"),
 ]
