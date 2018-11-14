@@ -2,15 +2,10 @@
 {% block title %} DA Contacts page {% endblock %}
 {% block breadcrumb %}
         <li><a href="{% url 'homepage' %}">Home</a></li>
-	{% if Post.title %}
-            <li><a href="{% url 'home:index' %}">Contacts</a></li>
-        {% else %}
-            <li class="active">Contacts</li>
-        {% endif %}
+        <li class="active">Contacts</li>
 {% endblock %}
 
 {% block content %}
-<!--<h5>e-mail: support@divineapp.net</h5>-->
 <!-- Example row of columns -->
 <div class="row">
 <div class="col-md-4">
@@ -26,7 +21,7 @@
 <div class="col-md-4">
   <h2>E-mail</h2>
   <i class="far fa-envelope" style="color: grey"></i>
-  <p><a class="btn btn-default" href="">Email to Alexandra &raquo;</a></p>
+  <p><a class="btn btn-default" href="{% url 'sendemail:index' %}">Email to Alexandra &raquo;</a></p>
 </div>
 </div>
 {% endblock %}
