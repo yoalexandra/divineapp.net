@@ -6,6 +6,5 @@ from divineapp.sendemail import views as sendemail_views
 
 urlpatterns = [
     url(r'^$',sendemail_views.index, name="index"),
-    url(r'^sendemail/$',sendemail_views.send_email,name="send_email"),
     url(r'^sendemail/thankyou$',TemplateView.as_view(template_name='sendemail/thankyou.html'),name="send_email_thankyou"),
 ]

@@ -8,5 +8,47 @@
 {% endblock %}
 
 {% block content %}
- <h3>e-mail: support@divineapp.net </h3>
+
+
+	<form method="POST" class="post-form">
+  {% csrf_token %}
+
+  {% if form.non_field_errors %}
+  <div class="row">
+    {% for error in form.non_field_errors %}
+    <div class="alert alert-danger">{{error}}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% for field in form %}
+  <hr>
+    <div class="row">
+      <div class="col-md-2">
+        {{ field.label_tag }}
+	{% if field.help_text %}
+
+          <sup>{{ field.help_text }}</sup>
+
+          {% endif %}
+	  {% for error in field.errors %}
+           <div class="row">
+             <div class="alert alert-danger">{{error}}</div>
+	   </div>
+	  {% endfor %}
+       </div><div class="col-md-10 pull-left">
+      
+	 {{ field }}
+       </div>
+    </div>
+    {% endfor %}
+  <button type="submit" class="save btn btn-primary">Submit</button>
+</form>
+
+  <!-- <form role="form"  method="POST">
+     {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit" class="save btn btn-primary">Submit</button>
+  </form> -->
+
 {% endblock %}
