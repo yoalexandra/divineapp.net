@@ -17,7 +17,6 @@ else:
 
 SECRET_KEY = '+&@e5l%x4$58^vb#^_xox4okl!hs8r*#h(ot(vl$s)^p-13#_d'
 
-
 ALLOWED_HOSTS = ['*']
 # Application definition
 INSTALLED_APPS = [
@@ -113,8 +112,12 @@ RAVEN_CONFIG = {
 
 if LIVEHOST:
     # Output to file based SMTP server on live host
-    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-    EMAIL_FILE_PATH = '/tmp/django-project-messages'
+    EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST='smtp.gmail.com'
+    EMAIL_PORT=587
+    EMAIL_HOST_USER='alexandra.beznosova@gmail.com/OR/support@divineapp.net'
+    EMAIL_HOST_PASSWORD='password'
+    EMAIL_USE_TLS=True
 
 else:
     # Output to console for non live host

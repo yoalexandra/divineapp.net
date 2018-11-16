@@ -9,8 +9,7 @@
 
 {% block content %}
 
-
-	<form method="POST" class="post-form">
+	<form method="POST">
   {% csrf_token %}
 
   {% if form.non_field_errors %}
@@ -37,12 +36,13 @@
 	   </div>
 	  {% endfor %}
        </div><div class="col-md-10 pull-left">
-      
+
 	 {{ field }}
        </div>
     </div>
     {% endfor %}
-  <button type="submit" class="save btn btn-primary">Submit</button>
+  <input type="submit" value="Submit" class="btn btn-primary">
+  <!--<button type="submit" class="save btn btn-primary">Submit</button>-->
 </form>
 
   <!-- <form role="form"  method="POST">
