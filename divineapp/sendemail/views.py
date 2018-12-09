@@ -18,3 +18,10 @@ def index(request):
 
 def thank_you(request):
     return render(request, 'sendemail/thankyou.html')
+
+
+"""
+ field_order=['email','name','comment']
+
+ 
+ """

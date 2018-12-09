@@ -8,14 +8,15 @@
 {% endblock %}
 
 {% block content %}
-
-	<form method="POST">
+  <h3>alexandra.beznosova@gmail.com</h3>
+	<!--<form method="POST">
   {% csrf_token %}
 
   {% if form.non_field_errors %}
   <div class="row">
     {% for error in form.non_field_errors %}
     <div class="alert alert-danger">{{error}}</div>
+
     {% endfor %}
   </div>
   {% endif %}
@@ -23,7 +24,9 @@
   {% for field in form %}
   <hr>
     <div class="row">
+
       <div class="col-md-2">
+
         {{ field.label_tag }}
 	{% if field.help_text %}
 
@@ -42,13 +45,7 @@
     </div>
     {% endfor %}
   <input type="submit" value="Submit" class="btn btn-primary">
-  <!--<button type="submit" class="save btn btn-primary">Submit</button>-->
-</form>
-
-  <!-- <form role="form"  method="POST">
-     {% csrf_token %}
-     {{ form.as_p }}
-    <button type="submit" class="save btn btn-primary">Submit</button>
-  </form> -->
+  <!--<button type="submit" class="save btn btn-primary">Submit</button>
+</form> -->
 
 {% endblock %}
