@@ -100,7 +100,7 @@ INTERNAL_IPS = ('127.0.0.1')
 
 STATICFILES_DIRS = ('%s/website-static-default/'% (BASE_DIR),)
 
-ADMINS = (('Webmaster', 'webmaster@divineapp.net'), ('admin', 'admin@divineapp.net'))
+ADMINS = (('webmaster', 'webmaster@divineapp.net'), ('admin', 'admin@divineapp.net'))
 
 #TODO: - configure it
 RAVEN_CONFIG = {
@@ -112,7 +112,7 @@ RAVEN_CONFIG = {
 
 if LIVEHOST:
     # Output to file based SMTP server on live host
-    EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+    #EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST='smtp.gmail.com'
     EMAIL_PORT=587
     EMAIL_HOST_USER='alexandra.beznosova@gmail.com/OR/support@divineapp.net'
