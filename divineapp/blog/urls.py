@@ -1,7 +1,9 @@
 from django.conf.urls import include, url
-from divineapp.blog import views as blog_views
+from . import views
+
+app_name = 'blog'
 
 urlpatterns = [
-    url(r'^$',blog_views.index,name="index"),
-    url(r'^(?P<post_id>\d+)/$',blog_views.posts,name="blog"),
+    url(r'^$',views.index,name="index"),
+    url(r'^(?P<post_id>\d+)/$',views.posts,name="blog"),
 ]
