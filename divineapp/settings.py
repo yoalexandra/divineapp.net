@@ -17,7 +17,7 @@ else:
 
 SECRET_KEY = '+&@e5l%x4$58^vb#^_xox4okl!hs8r*#h(ot(vl$s)^p-13#_d'
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',

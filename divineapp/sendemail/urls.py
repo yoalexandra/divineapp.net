@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.views.generic import TemplateView
-from django.conf.urls import url
+from django.conf.urls import include, url
 from . import views
 
-app_name = 'sendemail'
 
 urlpatterns = [
     url(r'^$',views.index, name="index"),

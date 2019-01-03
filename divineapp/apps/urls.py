@@ -1,7 +1,5 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 from divineapp.apps import views as apps_views
-
-app_name = 'apps'
 
 urlpatterns = [
     url(r'^$',apps_views.index,name="index"),
