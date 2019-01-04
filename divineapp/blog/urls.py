@@ -5,5 +5,4 @@ app_name = 'blog'
 
 urlpatterns = [
     url(r'^$',blog_views.index,name="index"),
-    url(r'^(?P<post_id>\d+)/$',blog_views.posts,name="blog"),
 ]
