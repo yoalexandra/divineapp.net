@@ -7,7 +7,3 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request,'blog/index.html', {'posts': posts})
-
-def posts(request, post_id='1'):
-    #TODO: access post_id with 'post_id' variable
-    return render(request, 'blog/blog.html')
